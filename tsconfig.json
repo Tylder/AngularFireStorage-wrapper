@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "angularfire-storage-wrapper": [
+        "dist/angularfire-storage-wrapper/angularfire-storage-wrapper",
+        "dist/angularfire-storage-wrapper"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
