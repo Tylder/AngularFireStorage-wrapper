@@ -1,20 +1,51 @@
 # AngularFire Storage Wrapper
 
-Angular class which wraps AngularFire Storage and provides methods to upload/download multiple files simultaneously while keeping track of their progress. 
+Angular class which wraps AngularFire Storage and provides methods to upload multiple files simultaneously while keeping track of their progress. 
 
 AngularFire (https://github.com/angular/angularfire) is the official Angular Library for Firebase. 
 
 AngularFire Storage provides a simple interface to upload/download files to your Firebase storage bucket.
 
-It is as simple as:
+```typescript
+@Component({s
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+    maxIndividualFileSizeMb = 2.0;
+    ngFireStorageWrapper: AngularfireStorageWrapper; /* this is the wrapper */
+    
+    constructor(private angularFireStorage: AngularFireStorage) {
+    
+        /* initialize wrapper by giving it the AngularFireStorage instance */
+        this.ngFireStorageWrapper = new AngularfireStorageWrapper(angularFireStorage);
+    }
+  
+    uploadFiles(files: File[]): void  {
+       /* create a list of paths where the files will be saved on the firebase storage bucket,
+        * the paths must be in the same order as the files */
+       const paths: string[] = [];
+   
+       files.forEach(file => {
+         paths.push(`${file.name}`);
+       }); 
 
-```html
-<div (longClick)="onLongClick($event)></div>
+        /* create GroupedUploadData object, the upload will start as soon as this object is created */
+        const groupedUploadData: GroupedUploadData = this.ngFireStorageWrapper.uploadMultipleFiles(
+          paths, files, [], { cacheControl: 'public, max-age=15552000' });
+
+        groupedUploadData.uploadPercentageGrouped$.pipe(
+          takeWhile(percentage => percentage < 100, true),
+        ).subscribe(percentage => console.log(percentage));  /* log percentage */
+    }   
+
+}
 ```
 
 ## Demo
 
-[Demo](https://tylder.github.io/ngx-long-click/)
+[Demo](https://angularfire-wrappers-demo.web.app/)
 
 or 
 
@@ -25,7 +56,7 @@ or
 Import the library in any Angular application by running:
 
 ```bash
-$ npm install ngx-long-click --save
+$ npm install angularfire-storage-wrapper --save
 ```
 
 and then from your Angular `AppModule`:
@@ -36,7 +67,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import the library module
-import {NgxLongClickModule} from 'ngx-long-click';
+import {AngularfireStorageWrapperModule} from 'angularfire-storage-wrapper';
 
 @NgModule({
   declarations: [
@@ -45,8 +76,8 @@ import {NgxLongClickModule} from 'ngx-long-click';
   imports: [
     BrowserModule,
 
-    // Specify NgxLongClickModule library as an import
-    NgxLongClickModule
+    // Specify AngularfireStorageWrapperModule library as an import
+    AngularfireStorageWrapperModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
@@ -54,17 +85,9 @@ import {NgxLongClickModule} from 'ngx-long-click';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its `longClick` directive in your Angular application:
+Once the library is imported, you can use it in your Angular application:
 
-```html
-<div (longClick)="onLongClick($event)"></div>
-```
-
-`clickDelayMs` specifies the time in milliseconds the element need to be pressed before the event is fired 
-
-```html
-<div (longClick)="onLongClick($event)" clickDelayMs="1000">Press for 1 sec</div>
-```
+To see an example of how you can upload multiple files and keep track of progress checkout the demo app.
 
 ## License
 

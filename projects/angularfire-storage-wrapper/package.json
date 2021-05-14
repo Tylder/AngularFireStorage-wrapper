@@ -1,12 +1,12 @@
 {
   "name": "angularfire-storage-wrapper",
-  "version": "0.0.1",
+  "version": "0.0.3",
 
   "repository": {
     "type": "git",
     "url": "https://github.com/Tylder/AngularFireStorage-wrapper/"
   },
-  "homepage": "https://tylder.github.io/ngx-long-click/",
+  "homepage": "https://angularfire-wrappers-demo.web.app/",
   "author": {
     "name": "Daniel Lofgren",
     "email": "lofgrendaniel@hotmail.com"

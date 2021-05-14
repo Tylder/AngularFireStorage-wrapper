@@ -9,12 +9,12 @@
     "build:lib": "npm run copy:readme && ng build angularfire-storage-wrapper --prod",
     "build:demo": "ng build demo --prod",
     "publish:lib": "npm publish --dir=./dist/angularfire-storage-wrapper",
-    "publish:demo": "firebase publish --dir=./dist/demo",
+    "publish:demo": "firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~11.1.2",
     "@angular/common": "~11.1.2",

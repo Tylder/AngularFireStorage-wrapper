@@ -3,8 +3,5 @@
   "dest": "../../dist/angularfire-storage-wrapper",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "allowedNonPeerDependencies": [
-    "@angular/fire"
-  ]
+  }
 }

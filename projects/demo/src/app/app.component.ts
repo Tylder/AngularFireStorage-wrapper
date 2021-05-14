@@ -101,7 +101,6 @@ export class AppComponent implements OnDestroy {
 
     groupedUploadData.completedUploadsGrouped$.pipe(
       tap(val => console.log(val)),
-
     ).subscribe();
   }
 
