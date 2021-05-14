@@ -1,0 +1,43 @@
+.main-container {
+  max-width: 800px;
+  padding: 20px 40px 20px 40px;
+  margin: auto;
+}
+
+.file-container {
+  border: black solid 1px;
+  padding: 20px;
+  margin: 10px 0;
+  width: calc(100% - 42px);
+  background-color: #d4ffd8;
+
+  .file-sub-container {
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .file-title {
+    font-weight: bold;
+  }
+
+}
+
+.warning-text {
+  color: red;
+}
+
+.warning-container {
+
+  border: red solid 1px;
+  padding: 20px;
+  margin: 10px 0;
+  width: calc(100% - 42px);
+}
+
+button {
+  padding: 5px;
+  margin-right: 10px;
+}

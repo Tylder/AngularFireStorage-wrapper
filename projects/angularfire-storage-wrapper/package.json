@@ -1,0 +1,32 @@
+{
+  "name": "angularfire-storage-wrapper",
+  "version": "0.0.1",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tylder/AngularFireStorage-wrapper/"
+  },
+  "homepage": "https://tylder.github.io/ngx-long-click/",
+  "author": {
+    "name": "Daniel Lofgren",
+    "email": "lofgrendaniel@hotmail.com"
+  },
+  "keywords": [
+    "angular",
+    "firebase",
+    "angularfire",
+    "wrapper",
+    "upload"
+  ],
+  "license": "MIT",
+
+  "peerDependencies": {
+    "@angular/common": "^11.1.2",
+    "@angular/core": "^11.1.2",
+    "@angular/fire": "^6.1.4",
+    "firebase": "^8.6.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

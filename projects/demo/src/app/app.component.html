@@ -1,0 +1,60 @@
+
+<ngx-loading-bar></ngx-loading-bar>
+
+<div class="main-container">
+  <h1>AngularFire Storage Wrapper for uploading multiple files simultaneously</h1>
+  <h3>If you wish to test you can upload multiple files at once by pressing the upload files button</h3>
+  <h3>File size requirements:</h3>
+  <p>This demo app uses a free Firebase project so in order to not surpass the max usage the
+  following rules are enforced: </p>
+
+  <ul>
+    <li>Individual file size <= {{maxIndividualFileSizeMb | number : '0.1'}} Mb</li>
+    <li>Total file size <= {{maxTotalFileSizeMb | number : '0.1'}} Mb</li>
+  </ul>
+
+  <div class="warning-container">
+    <p class="warning-text">Warning!</p>
+    <p>Do not upload any sensitive or confidential files.
+      The storage container is not secure.</p>
+    <p>The files are deleted when you leave the page or when you press the 'Delete Files' button</p>
+  </div>
+
+
+  <input hidden #fileUploadEl (change)="fileUpload($event)" multiple type="file" accept="image/*"/>
+  <button mat-stroked-button (click)="fileUploadEl.click()">Upload Files</button>
+
+  <button *ngIf="(completedUploads$ | async)?.length > 0" (click)="deleteAllUploadedFiles()">Delete Files</button>
+
+
+  <div *ngIf="(errorMessage$ | async) as err">
+    <p class="warning-text">Error: {{err}}</p>
+  </div>
+
+  <div *ngFor="let upload of (completedUploads$ | async)" class="file-container">
+
+
+    <div class="file-sub-container">
+      <span class="file-title">Filename: </span>
+      <span>{{upload.file.name}}</span>
+    </div>
+
+    <div class="file-sub-container">
+      <span class="file-title">Size: </span>
+      <span>{{upload.file.size}} bytes</span>
+    </div>
+
+    <div class="file-sub-container">
+      <span class="file-title">Full Object:</span>
+      <span>{{upload | json}}</span>
+    </div>
+
+  </div>
+
+  <p>License: MIT Daniel Lofgren</p>
+  <a href="https://github.com/Tylder/AngularFireStorage-wrapper">Github</a>
+
+
+</div>
+
+
