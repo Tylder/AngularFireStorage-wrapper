@@ -1,24 +1,71 @@
-# AngularfireStorageWrapper
+# AngularFire Storage Wrapper
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+Angular class which wraps AngularFire Storage and provides methods to upload/download multiple files simultaneously while keeping track of their progress. 
 
-## Code scaffolding
+AngularFire (https://github.com/angular/angularfire) is the official Angular Library for Firebase. 
 
-Run `ng generate component component-name --project angularfire-storage-wrapper` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angularfire-storage-wrapper`.
-> Note: Don't forget to add `--project angularfire-storage-wrapper` or else it will be added to the default project in your `angular.json` file. 
+AngularFire Storage provides a simple interface to upload/download files to your Firebase storage bucket.
 
-## Build
+It is as simple as:
 
-Run `ng build angularfire-storage-wrapper` to build the project. The build artifacts will be stored in the `dist/` directory.
+```html
+<div (longClick)="onLongClick($event)></div>
+```
 
-## Publishing
+## Demo
 
-After building your library with `ng build angularfire-storage-wrapper`, go to the dist folder `cd dist/angularfire-storage-wrapper` and run `npm publish`.
+[Demo](https://tylder.github.io/ngx-long-click/)
 
-## Running unit tests
+or 
 
-Run `ng test angularfire-storage-wrapper` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm run start` to run a local demo
 
-## Further help
+## Using the library
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Import the library in any Angular application by running:
+
+```bash
+$ npm install ngx-long-click --save
+```
+
+and then from your Angular `AppModule`:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+// Import the library module
+import {NgxLongClickModule} from 'ngx-long-click';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+
+    // Specify NgxLongClickModule library as an import
+    NgxLongClickModule
+  ],
+  providers: [],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+```
+
+Once your library is imported, you can use its `longClick` directive in your Angular application:
+
+```html
+<div (longClick)="onLongClick($event)"></div>
+```
+
+`clickDelayMs` specifies the time in milliseconds the element need to be pressed before the event is fired 
+
+```html
+<div (longClick)="onLongClick($event)" clickDelayMs="1000">Press for 1 sec</div>
+```
+
+## License
+
+MIT © [Daniel Lofgren](mailto:lofgrendaniel@hotmail.com)
