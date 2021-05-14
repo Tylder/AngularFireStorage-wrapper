@@ -2,6 +2,10 @@
 
 Angular class which wraps AngularFire Storage and provides methods to upload/download multiple files simultaneously while keeping track of their progress. 
 
+AngularFire (https://github.com/angular/angularfire) is the official Angular Library for Firebase. 
+
+AngularFire Storage provides a simple interface to upload/download files to your Firebase storage bucket.
+
 It is as simple as:
 
 ```html
