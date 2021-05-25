@@ -70,30 +70,26 @@ Import the library in any Angular application by running:
 $ npm install --save angularfire-storage-wrapper 
 ```
 
-and then from your Angular `AppModule`:
+and then in any component or service:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import {AngularfireStorageWrapper} from 'angularfire-storage-wrapper';
 
-// Import the library module
-import {AngularfireStorageWrapperModule} from 'angularfire-storage-wrapper';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify AngularfireStorageWrapperModule library as an import
-    AngularfireStorageWrapperModule
-  ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppModule { }
+export class AppComponent {
+
+  ngFireStorageWrapper: AngularfireStorageWrapper; /* this is the wrapper */
+
+  constructor(private angularFireStorage: AngularFireStorage) {
+
+    /* initialize wrapper */
+    this.ngFireStorageWrapper = new AngularfireStorageWrapper(angularFireStorage);
+  }
+}
 ```
 
 Once the library is imported, you can use it in your Angular application:

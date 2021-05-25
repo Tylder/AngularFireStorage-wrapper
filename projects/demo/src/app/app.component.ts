@@ -1,13 +1,9 @@
 import {Component, HostListener, OnDestroy} from '@angular/core';
 import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
-import {
-  AngularfireStorageWrapper,
-  CompletedUpload,
-  GroupedUploadData
-} from '../../../angularfire-storage-wrapper/src/lib/angularfire-storage-wrapper';
 import {LoadingBarService} from '@ngx-loading-bar/core';
 import {finalize, map, switchMap, takeWhile, tap} from 'rxjs/operators';
 import {BehaviorSubject, forkJoin} from 'rxjs';
+import {AngularfireStorageWrapper, CompletedUpload, GroupedUploadData} from 'angularfire-storage-wrapper';
 
 @Component({
   selector: 'app-root',
