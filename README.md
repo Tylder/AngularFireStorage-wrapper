@@ -42,20 +42,32 @@ export class AppComponent {
 }
 ```
 
+
 ## Demo
+You can find a simple demo in projects/demo.
 
 [Demo](https://angularfire-wrappers-demo.web.app/)
 
 or 
 
-`npm run start` to run a local demo
+> Steps to run locally:
+> <ol>
+>    <li>Clone this repo</li>
+>    <li>Setup a firebase project and place the config 'firebaseConfig' here: projects/demo/src/environments/firebase-secure.ts and export it.</li>
+>    <li>Run the following commands:</li>
+> </ol>
+
+```bash
+npm install
+npm run start
+```
 
 ## Using the library
 
 Import the library in any Angular application by running:
 
 ```bash
-$ npm install angularfire-storage-wrapper --save
+$ npm install --save angularfire-storage-wrapper 
 ```
 
 and then from your Angular `AppModule`:

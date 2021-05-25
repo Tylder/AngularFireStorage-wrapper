@@ -13,7 +13,6 @@ AngularFire Storage provides a simple interface to upload/download files to your
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    maxIndividualFileSizeMb = 2.0;
     ngFireStorageWrapper: AngularfireStorageWrapper; /* this is the wrapper */
     
     constructor(private angularFireStorage: AngularFireStorage) {

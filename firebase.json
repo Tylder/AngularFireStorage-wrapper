@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "angularfire-wrappers-demo",
     "public": "dist/demo",
     "ignore": [
       "firebase.json",
